@@ -1,7 +1,14 @@
 import '../global.css';
-
-import { Stack } from 'expo-router';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Slot } from 'expo-router';
+import AuthProvider from '~/providers/AuthProvider';
 
 export default function Layout() {
-  return <Stack />;
+  return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <AuthProvider>
+        <Slot />
+      </AuthProvider>
+    </GestureHandlerRootView>
+  );
 }
